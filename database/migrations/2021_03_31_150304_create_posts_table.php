@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->longText('body');
             $table->foreignId('media_id')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
