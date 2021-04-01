@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home')
     ->middleware(['auth', 'admin']);
 
-// Route::middleware(['auth', 'admin'])->prefix('/admin')->group(function () {
-//     Route::resource('users', UserController::class);
-//     Route::resource('categories', CategoryController::class);
-//     Route::resource('posts', PostController::class);
-// });
+Route::middleware(['auth', 'admin'])->prefix('/admin')->group(function () {
+    Route::resource('users', UserController::class);
+    // Route::resource('categories', CategoryController::class);
+    // Route::resource('posts', PostController::class);
+});
