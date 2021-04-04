@@ -2,6 +2,15 @@
 
 @section('title', 'Add New User')
 
+@section('plugins.Select2', true)
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('#role').select2();
+    });
+</script>
+@endsection
 @section('content')
 
 <x-alert />
