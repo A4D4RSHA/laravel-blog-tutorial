@@ -306,6 +306,16 @@ return [
                 ],
             ],
         ],
+        'Editor' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'js/ckeditor/ckeditor.js',
+                ]
+            ]
+        ],
         'Nepalidate' => [
             'active' => false,
             'files' => [
