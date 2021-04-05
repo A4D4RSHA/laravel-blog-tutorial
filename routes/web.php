@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::middleware(['auth', 'admin'])->prefix('/admin')->group(function () {
     Route::resource('users', UserController::class);
-    // Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class);
     // Route::resource('posts', PostController::class);
 });
