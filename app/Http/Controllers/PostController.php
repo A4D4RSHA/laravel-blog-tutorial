@@ -45,6 +45,7 @@ class PostController extends Controller
         Post::create([
             'title' => $request->title,
             'body' => clean($request->body),
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect()->route('posts.index')
@@ -90,6 +91,7 @@ class PostController extends Controller
         $post->update([
             'title' => $request->title,
             'body' => clean($request->body),
+            'user_id' => auth()->user()->id,
         ]);
 
         return redirect()->route('posts.index')
