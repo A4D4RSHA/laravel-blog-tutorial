@@ -30,6 +30,14 @@
                 <td>{!! $post->body !!}</td>
             </tr>
             <tr>
+                <td>Media</td>
+                <td>
+                    @if($post->media_id)
+                        <img src="/storage/{{ $post->media->path }}" height="200px" />
+                    @endif
+                </td>
+            </tr>
+            <tr>
                 <td>Last Update</td>
                 <td>{{ $post->updated_at }}</td>
             </tr>

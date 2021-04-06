@@ -21,6 +21,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
+                    <th>Media</th>
                     <th>Title</th>
                     <th>Body</th>
                     <th>Action</th>
@@ -30,6 +31,11 @@
                 @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
+                    <td>
+                        @if($post->media_id)
+                        <img src="/storage/{{ $post->media->path }}" height="30px" />
+                        @endif
+                    </td>
                     <td>{{ $post->title }}</td>
                     <td>
                        {{ Str::limit(strip_tags($post->body), 30) }}

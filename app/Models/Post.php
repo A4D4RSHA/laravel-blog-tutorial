@@ -15,4 +15,9 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function media()
+    {
+        return $this->belongsTo(Media::class);
+    }
 }

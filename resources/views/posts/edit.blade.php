@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form action="{{ route('posts.update', $post->id) }}" method="POST">
+        <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -33,6 +33,12 @@
                 type="textarea"
                 text="Body"
                 :current="$post->body"
+            />
+
+            <x-input
+                type="file"
+                field="image"
+                text="Post Image"
             />
 
             <button class="btn btn-primary">Save</button>

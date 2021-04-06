@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form action="{{ route('posts.store') }}" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <x-input
@@ -30,6 +30,12 @@
                 field="body"
                 type="textarea"
                 text="Body"
+            />
+
+            <x-input
+                type="file"
+                field="image"
+                text="Post Image"
             />
 
             <button class="btn btn-primary">Save</button>
