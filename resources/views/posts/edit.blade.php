@@ -1,6 +1,15 @@
 @extends('adminlte::page')
 
 @section('title', 'Update Post')
+@section('plugins.Select2', true)
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#category_id').select2();
+    });
+</script>
+@endpush
 
 @section('content')
 
@@ -40,6 +49,22 @@
                 field="image"
                 text="Post Image"
             />
+
+            <div class="form-group">
+                <label for="category_id">Category</label>
+                <select class="form-control" name="categories[]" multiple id="category_id">
+                    <option value="">Choose One</option>
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}" @if(in_array($category->id, $post_cat)) selected @endif>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
+
+                @error('categories')
+                <small class="form-text text-danger">{{ $message }}</small>
+                @enderror
+            </div>
 
             <button class="btn btn-primary">Save</button>
         </form>

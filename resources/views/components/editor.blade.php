@@ -2,7 +2,7 @@
 
 @section('plugins.Editor', true)
 
-@section('js')
+@push('js')
 <script>
     ClassicEditor.create( document.querySelector( '{{ $field }}' ), {
         toolbar: {
@@ -34,4 +34,4 @@
         console.error( error );
     } );
 </script>
-@endsection
+@endpush
