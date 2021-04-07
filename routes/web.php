@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
@@ -17,11 +18,11 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('index');
+Route::get('/posts/{post}', [\App\Http\Controllers\SiteController::class, 'post'])->name('post');
+Route::get('/category/{category}', [\App\Http\Controllers\SiteController::class, 'category'])->name('category');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home')
