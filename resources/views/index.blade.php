@@ -34,6 +34,7 @@
             {{ $posts->links() }}
        </div>
        <div class="col-12 col-md-3">
+        @include('layouts.search')
         @include('layouts.categories')
        </div>
    </div>

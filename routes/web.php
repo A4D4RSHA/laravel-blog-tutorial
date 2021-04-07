@@ -24,6 +24,8 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('i
 Route::get('/posts/{post}', [\App\Http\Controllers\SiteController::class, 'post'])->name('post');
 Route::get('/category/{category}', [\App\Http\Controllers\SiteController::class, 'category'])->name('category');
 
+Route::get('/search', [\App\Http\Controllers\SiteController::class, 'search'])->name('search');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home')
     ->middleware(['auth', 'admin']);
